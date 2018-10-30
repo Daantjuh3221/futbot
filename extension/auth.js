@@ -69,6 +69,7 @@ function pushDataToServer () {
     })
 }
 
+
 addScript(`
   var authData = {};
   var SERVER_HREF = '${SERVER_HREF}';
