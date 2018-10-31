@@ -45,7 +45,7 @@ export namespace fut {
     watched: boolean
     tradeOwner: boolean
   }
-  export async function getPlayerTransferData(assetId, batch, query?): Promise<AuctionInfo[]> {
+  export async function getPlayerTransferData(assetId: number, batch: number, query?: any): Promise<AuctionInfo[]> {
     const defaultQuery = {
       start: batch * 20,
       num: 21,

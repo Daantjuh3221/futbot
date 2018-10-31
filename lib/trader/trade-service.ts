@@ -41,10 +41,12 @@ export namespace tradeService {
     let players = await fut.getTradePile()
     players = players.filter(p => (p.tradeId === 0 || p.tradeState !== 'active'));
     const expired = players.filter(p => (p.tradeId === 0 || p.tradeState === 'expired'))
-    const sold = players.filter(p => (p.tradeId === 0 || p.tradeState === 'closed'))
+    // const sold = players.filter(p => (p.tradeId === 0 || p.tradeState === 'closed'))
 
-    if (sold.length > 0) {
+    try {
       await fut.clearSold()
+    } catch (e) { 
+      // noop
     }
 
     for (const player of expired) {

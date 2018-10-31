@@ -13,8 +13,8 @@ export namespace playerService {
     averageStartingBid: number;
     samplecount: number;
   }
-  export async function getMarketPrice (assetId, resourceId): Promise<MarketPrice> {
-    const auctions = await getAuctions(assetId);
+  export async function getMarketPrice (resourceId): Promise<MarketPrice> {
+    const auctions = await getAuctions(resourceId);
   
     const price: MarketPrice = {
       minBuyNow: Number.MAX_VALUE,

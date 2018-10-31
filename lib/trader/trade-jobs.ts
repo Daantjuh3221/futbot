@@ -30,7 +30,7 @@ export class SellXPlayers extends Job {
     const sellPlayers = async () => {
       const players = (await club.getPlayersToSell()).slice(0, amount)
       for (const player of players) {
-        let price: SellPrice = await getOptimalSellPrice(player.assetId)
+        let price: SellPrice = await getOptimalSellPrice(player.resourceId)
         if (!price) {
           continue
         }
