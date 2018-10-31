@@ -21,10 +21,13 @@ export namespace investService {
     const players = $('#repTb tbody tr')
       .map((i, elm) => {
         const player = $(elm)
-        const imgSource = player.find('td img.player_img').data('original')
-        const assetId = /players\/([0-9]+)\.png/.exec(imgSource)[1]
-        return parseInt(assetId, 10)
+        const imgSource = player.find('td img.player_img.gold.rare').data('original')
+        const execResult = /players\/([0-9]+)\.png/.exec(imgSource)
+        const assetId = execResult && execResult[1]
+        if (assetId) return parseInt(assetId, 10)
+        return null
       })
+      .filter(id => !!id)
 
     return players.get() as any
   }

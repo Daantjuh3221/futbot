@@ -15,6 +15,8 @@ export namespace futbin {
     prp?: number
   }
   export async function getPrice (resourceId): Promise<Prices> {
+    if (!resourceId) return null
+    
     const response = await api.get(`https://www.futbin.com/19/playerPrices?player=${resourceId}`);
     const apiPrices = response.data[resourceId].prices;
     const result: Prices = {
