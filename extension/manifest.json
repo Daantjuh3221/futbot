@@ -9,10 +9,6 @@
     {
       "js": ["auth.js"],
       "matches": ["https://www.easports.com/fifa/ultimate-team/web-app*"]
-    },
-    {
-      "js": ["players.js"],
-      "matches": ["https://www.easports.com/fifa/ultimate-team/web-app*"]
     }
   ]
  

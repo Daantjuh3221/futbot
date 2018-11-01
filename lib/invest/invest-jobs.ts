@@ -47,6 +47,8 @@ export class LowPlayerInvestor extends Job {
       const target = targets.shift()
       const playerStr = playerService.readable({ assetId: target.assetId })
       const value = await getOptimalSellPrice(target.resourceId)
+      if (!value) return
+
       const safeBuyValue = value.startingBid * BUY_REFERENCE_PERCT
       const price = p => p.currentBid != 0 ? p.currentBid : p.startingBid
       let batch = 0
